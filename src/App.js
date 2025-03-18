@@ -5,15 +5,6 @@ import { useNavigate } from 'react-router-dom';
 // Inside the App function:
 
 
-<button
-  className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-md font-medium transition-colors"
->
-  Download for Windows
-</button>
-
-// You would need to install these packages:
-// npm install tailwindcss framer-motion
-
 function App() {
   const [isScrolled, setIsScrolled] = useState(false);
   //const navigate = useNavigate();
@@ -47,24 +38,20 @@ function App() {
   return (
     <div className="font-sans text-gray-900 bg-white">
       {/* Header */}
-      <header
-        className={`fixed w-full z-50 transition-all duration-300 ${
-          isScrolled ? 'bg-white shadow-md py-3' : 'bg-transparent py-5'
-        }`}
-      >
-        <div className="container mx-auto px-6 flex justify-between items-center">
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="flex items-center"
-          >
-            <h1 className="text-2xl font-bold">
-              InitFlow<span className="text-blue-600">AI</span>
-            </h1>
-          </motion.div>
+      <nav className={`fixed w-full z-50 transition-all ${isScrolled ? 'backdrop-blur bg-white/20 shadow-sm' : 'backdrop-blur bg-white/5'} py-4`}>
+        <div className="container mx-auto px-4">
+          <div className="flex justify-between items-center">
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              className="flex items-center"
+            >
+              <h1 className="text-2xl font-bold">
+                InitFlow<span className="text-blue-600">AI</span>
+              </h1>
+            </motion.div>
 
-          <nav className="hidden md:flex">
-            <ul className="flex space-x-8">
+            <ul className="hidden md:flex space-x-8">
               {['Features', 'Pricing', 'Enterprise'].map((item) => (
                 <motion.li
                   key={item}
@@ -80,26 +67,26 @@ function App() {
                 </motion.li>
               ))}
             </ul>
-          </nav>
 
-          <div className="flex items-center space-x-4">
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="font-medium text-gray-700 hover:text-blue-600 transition-colors"
-            >
-              Login
-            </motion.button>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md transition-colors"
-            >
-              Sign up
-            </motion.button>
+            <div className="flex items-center space-x-4">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="font-medium text-gray-700 hover:text-blue-600 transition-colors"
+              >
+                Login
+              </motion.button>
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md transition-colors"
+              >
+                Sign up
+              </motion.button>
+            </div>
           </div>
         </div>
-      </header>
+      </nav>
 
       {/* Hero Section */}
       <section className="relative bg-black text-white pt-32 pb-20">
@@ -516,4 +503,4 @@ function App() {
   );
 }
 
-export default App; 
+export default App;
