@@ -482,15 +482,15 @@ function App() {
                 <li><a href="#features" className="text-gray-400 hover:text-blue-600 transition-colors">Features</a></li>
                 <li><a href="#solutions" className="text-gray-400 hover:text-blue-600 transition-colors">Solutions</a></li>
                 <li><a href="#" className="text-gray-400 hover:text-blue-600 transition-colors">Pricing</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-blue-600 transition-colors">Contact</a></li>
+                <li><a href="/contact" className="text-gray-400 hover:text-blue-600 transition-colors">Contact</a></li>
               </ul>
             </div>
             <div>
               <h4 className="text-lg font-bold mb-4">Legal</h4>
               <ul className="space-y-2">
-                <li><a href="#" className="text-gray-400 hover:text-blue-600 transition-colors">Privacy Policy</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-blue-600 transition-colors">Terms of Service</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-blue-600 transition-colors">Cookie Policy</a></li>
+                <li><a href="/privacy-policy" className="text-gray-400 hover:text-blue-600 transition-colors">Privacy Policy</a></li>
+                <li><a href="/terms-of-service" className="text-gray-400 hover:text-blue-600 transition-colors">Terms of Service</a></li>
+                <li><a href="/cookie-policy" className="text-gray-400 hover:text-blue-600 transition-colors">Cookie Policy</a></li>
               </ul>
             </div>
           </div>
