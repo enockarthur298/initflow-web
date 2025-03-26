@@ -6,7 +6,7 @@ function InstallationPage() {
     <div className="min-h-screen bg-gray-100 flex flex-col items-center justify-center">
       <h1 className="text-4xl font-bold mb-6">Installation Guide</h1>
       <p className="text-lg text-gray-700 mb-8">
-        Follow these steps to install InitFlow AI on Windows:
+        Follow these steps to install InitFlow:
       </p>
       
       <ul className="list-disc text-gray-700 space-y-4 mb-8">
