@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { useNavigate } from 'react-router-dom';
-
-// Inside the App function:
-
+import { motion } from 'framer-motion';
+// import { useNavigate } from 'react-router-dom';
 
 function App() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -117,7 +114,6 @@ function App() {
                 >
                   Download for Windows
                 </button>
-                
               </motion.div>
             </motion.div>
             <motion.div
@@ -481,7 +477,7 @@ function App() {
               <ul className="space-y-2">
                 <li><a href="#features" className="text-gray-400 hover:text-blue-600 transition-colors">Features</a></li>
                 <li><a href="#solutions" className="text-gray-400 hover:text-blue-600 transition-colors">Solutions</a></li>
-                <li><a href="#" className="text-gray-400 hover:text-blue-600 transition-colors">Pricing</a></li>
+                <li><a href="#pricing" className="text-gray-400 hover:text-blue-600 transition-colors">Pricing</a></li>
                 <li><a href="/contact" className="text-gray-400 hover:text-blue-600 transition-colors">Contact</a></li>
               </ul>
             </div>
