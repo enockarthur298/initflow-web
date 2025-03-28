@@ -121,9 +121,10 @@ function App() {
                       </motion.p>
                       <motion.div variants={fadeInUp} className="flex flex-wrap gap-4">
                         <button
-                          className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-md font-medium transition-colors"
+                          className="bg-gray-600/50 hover:bg-gray-600/70 text-gray-300 px-6 py-3 rounded-md font-medium transition-colors cursor-not-allowed"
+                          disabled
                         >
-                          Download for Windows
+                          Coming Soon
                         </button>
                       </motion.div>
                     </motion.div>
