@@ -14,7 +14,7 @@ function App() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
     };
-
+     
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -110,14 +110,14 @@ function App() {
                         variants={fadeInUp}
                         className="text-5xl font-bold leading-tight mb-6"
                       >
-                        Your AI workforce, <br /> ready to transform <br /> your business
+                        Your AI workforce, <br /> ready to transform <br /> your work and business
                       </motion.h1>
                       <motion.p
                         variants={fadeInUp}
                         className="text-xl text-gray-300 mb-8"
                       >
-                        Join thousands of businesses using InitFlow to automate workflows,
-                        reduce costs, and accelerate growth with autonomous virtual workers.
+                        Join thousands of individuals and businesses using InitFlow to automate workflows,
+                        reduce costs, and accelerate growth with automated worflows.
                       </motion.p>
                       <motion.div variants={fadeInUp} className="flex flex-wrap gap-4">
                         <button
@@ -237,12 +237,12 @@ function App() {
                           {
                             title: "Intuitive Dashboard",
                             description:
-                              "Manage all your virtual workers from a single, easy-to-use interface.",
+                              "Manage all your workflows from a single, easy-to-use interface.",
                           },
                           {
                             title: "Task Automation",
                             description:
-                              "See how to automate repetitive tasks with just a few clicks.",
+                              "See how to automate repetitive tasks with just a description.",
                           },
                           {
                             title: "Real-time Analytics",
@@ -251,7 +251,7 @@ function App() {
                           {
                             title: "Seamless Integration",
                             description:
-                              "Integrate with your existing tools and workflows effortlessly.",
+                              "Integrate with your existing tools and data sources easily.",
                           },
                         ].map((feature, index) => (
                           <li key={index} className="flex items-start">
@@ -331,7 +331,7 @@ function App() {
                         ),
                         title: 'Adaptive Learning',
                         description:
-                          'Advanced AI that learns your business processes and continually improves over time.',
+                          'Advanced AI that learns your work and business processes and continually improves over time.',
                       },
                       {
                         icon: (
@@ -346,7 +346,7 @@ function App() {
                         ),
                         title: 'Process Automation',
                         description:
-                          'Seamlessly automate repetitive tasks across customer service, data entry, and admin workflows.',
+                          'Seamlessly automate repetitive tasks across customer service, data entry, admin workflows etc.',
                       },
                       {
                         icon: (
@@ -393,7 +393,7 @@ function App() {
                         A true autonomy platform, not just another automation tool
                       </h2>
                       <p className="text-gray-600 mb-6">
-                        Deploy fully autonomous virtual workers capable of understanding context, making
+                        Deploy fully autonomous workflows capable of understanding context, making
                         decisions, and executing complete workflows without constant supervision.
                       </p>
                       <motion.button
@@ -481,7 +481,7 @@ function App() {
                     <div>
                       <h3 className="text-xl font-bold mb-4">InitFlow</h3>
                       <p className="text-gray-400">
-                        Transforming businesses with autonomous virtual workers.
+                        Transforming businesses with autonomous workflows.
                       </p>
                     </div>
                     <div>

@@ -12,7 +12,7 @@ const Pricing = () => {
             Simple, Transparent Pricing
           </h1>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Unlock the power of autonomous virtual workers with our flexible monthly plan
+            Unlock the power of autonomous workflows with our flexible monthly plan
           </p>
         </div>
 
