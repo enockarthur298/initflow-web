@@ -478,7 +478,6 @@ function App() {
                 <li><a href="#features" className="text-gray-400 hover:text-blue-600 transition-colors">Features</a></li>
                 <li><a href="#solutions" className="text-gray-400 hover:text-blue-600 transition-colors">Solutions</a></li>
                 <li><a href="#pricing" className="text-gray-400 hover:text-blue-600 transition-colors">Pricing</a></li>
-                <li><a href="/contact" className="text-gray-400 hover:text-blue-600 transition-colors">Contact</a></li>
               </ul>
             </div>
             <div>
@@ -486,7 +485,6 @@ function App() {
               <ul className="space-y-2">
                 <li><a href="/privacy-policy" className="text-gray-400 hover:text-blue-600 transition-colors">Privacy Policy</a></li>
                 <li><a href="/terms-of-service" className="text-gray-400 hover:text-blue-600 transition-colors">Terms of Service</a></li>
-                <li><a href="/cookie-policy" className="text-gray-400 hover:text-blue-600 transition-colors">Cookie Policy</a></li>
               </ul>
             </div>
           </div>
