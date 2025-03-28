@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import TermsOfService from './pages/TermsOfService';
 import PrivacyPolicy from './pages/PrivacyPolicy';
+import Pricing from './pages/Pricing';
 
 function App() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -39,6 +40,7 @@ function App() {
       <Routes>
         <Route path="/terms-of-service" element={<TermsOfService />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/pricing" element={<Pricing />} />
         <Route
           path="/"
           element={
@@ -64,12 +66,12 @@ function App() {
                           whileHover={{ scale: 1.05 }}
                           whileTap={{ scale: 0.95 }}
                         >
-                          <a
-                            href={`#${item.toLowerCase()}`}
+                          <Link
+                            to={item.toLowerCase() === 'pricing' ? '/pricing' : `#${item.toLowerCase()}`}
                             className="font-medium text-gray-700 hover:text-blue-600 transition-colors"
                           >
                             {item}
-                          </a>
+                          </Link>
                         </motion.li>
                       ))}
                     </ul>
@@ -486,7 +488,7 @@ function App() {
                       <ul className="space-y-2">
                         <li><a href="#features" className="text-gray-400 hover:text-blue-600 transition-colors">Features</a></li>
                         <li><a href="#solutions" className="text-gray-400 hover:text-blue-600 transition-colors">Solutions</a></li>
-                        <li><a href="#pricing" className="text-gray-400 hover:text-blue-600 transition-colors">Pricing</a></li>
+                        <li><Link to="/pricing" className="text-gray-400 hover:text-blue-600 transition-colors">Pricing</Link></li>
                       </ul>
                     </div>
                     <div>
