@@ -11,22 +11,31 @@ function App() {
   const [email, setEmail] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
+  const [emailError, setEmailError] = useState('');
+
+  const validateEmail = (email) => {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(email);
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!email.trim()) {
+    
+    if (!validateEmail(email)) {
+      setEmailError('Please enter a valid email address');
       setSubmitStatus('error');
       return;
     }
     
+    setEmailError('');
     setIsSubmitting(true);
     
     // Simulate API call
     setTimeout(() => {
+      setIsSubmitting(false);
       setSubmitStatus('success');
       setEmail('');
-      setIsSubmitting(false);
-    }, 1000);
+    }, 1500);
   };
 
   // Handle scroll effect for header
@@ -66,7 +75,7 @@ function App() {
           element={
             <div className="font-sans text-gray-900 bg-white">
               {/* Header */}
-              <nav className={`fixed w-full z-50 transition-all ${isScrolled ? 'backdrop-blur bg-white/20 shadow-sm' : 'backdrop-blur bg-white/5'} py-4`}>
+              <nav className={`fixed w-full z-50 transition-all ${isScrolled ? 'backdrop-blur bg-white/20 shadow-sm' : 'backdrop-blur bg-white/5'} py-4`} aria-label="Main navigation">
                 <div className="container mx-auto px-4">
                   <div className="flex justify-between items-center">
                     <motion.div
@@ -80,7 +89,7 @@ function App() {
                     </motion.div>
 
                     <ul className="hidden md:flex space-x-8">
-                      {['Features', 'Pricing', 'Enterprise'].map((item) => (
+                      {['Features', 'Pricing'].map((item) => (
                         <motion.li
                           key={item}
                           whileHover={{ scale: 1.05 }}
@@ -88,7 +97,8 @@ function App() {
                         >
                           <Link
                             to={item.toLowerCase() === 'pricing' ? '/pricing' : `#${item.toLowerCase()}`}
-                            className="font-medium text-gray-700 hover:text-blue-600 transition-colors"
+                            className="font-medium text-white hover:text-blue-200 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-gray-900 rounded-md px-3 py-2"
+                            aria-current={window.location.pathname.includes(item.toLowerCase()) ? 'page' : undefined}
                           >
                             {item}
                           </Link>
@@ -513,28 +523,39 @@ function App() {
                         viewport={{ once: true }}
                         className="bg-white/5 backdrop-blur-lg p-1 rounded-xl shadow-2xl border border-white/10 max-w-md mx-auto"
                       >
-                        <form onSubmit={handleSubmit} className="space-y-4 p-7">
+                        <form onSubmit={handleSubmit} className="space-y-4 p-7" aria-label="Waitlist signup form">
                           <div className="relative">
+                            <label htmlFor="waitlist-email" className="sr-only">Email address</label>
                             <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                              <svg className="h-5 w-5 text-blue-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <svg className="h-5 w-5 text-blue-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                               </svg>
                             </div>
                             <input
+                              id="waitlist-email"
                               type="email"
                               value={email}
-                              onChange={(e) => setEmail(e.target.value)}
+                              onChange={(e) => {
+                                setEmail(e.target.value);
+                                if (emailError) setEmailError('');
+                              }}
                               placeholder="Enter your email"
-                              className="w-full pl-10 pr-4 py-3 bg-white/5 text-white placeholder-blue-200/60 rounded-lg border border-white/10 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all"
+                              className={`w-full pl-10 pr-4 py-3 bg-white/5 text-white placeholder-blue-200/60 rounded-lg border ${emailError ? 'border-red-400' : 'border-white/10'} focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all`}
                               required
                               disabled={isSubmitting}
+                              aria-invalid={!!emailError}
+                              aria-describedby={emailError ? "email-error" : undefined}
                             />
+                            {emailError && (
+                              <p id="email-error" className="mt-1 text-sm text-red-400">{emailError}</p>
+                            )}
                           </div>
                           
                           <button
                             type="submit"
-                            className="w-full bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white px-6 py-3.5 rounded-lg font-medium transition-all duration-300 transform hover:scale-[1.02] disabled:opacity-70 flex items-center justify-center gap-2"
+                            className="w-full bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white px-6 py-3.5 rounded-lg font-medium transition-all duration-300 transform hover:scale-[1.02] disabled:opacity-70 flex items-center justify-center gap-2 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-gray-900"
                             disabled={isSubmitting}
+                            aria-label={isSubmitting ? "Submitting waitlist form" : "Submit waitlist form"}
                           >
                             {isSubmitting ? (
                               <>
@@ -547,7 +568,7 @@ function App() {
                             ) : (
                               <>
                                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 7h8m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
                                 </svg>
                                 Join Priority Waitlist
                               </>
@@ -609,7 +630,6 @@ function App() {
                       <h4 className="text-lg font-bold mb-4">Quick Links</h4>
                       <ul className="space-y-2">
                         <li><a href="#features" className="text-gray-400 hover:text-blue-600 transition-colors">Features</a></li>
-                        <li><a href="#solutions" className="text-gray-400 hover:text-blue-600 transition-colors">Solutions</a></li>
                         <li><Link to="/pricing" className="text-gray-400 hover:text-blue-600 transition-colors">Pricing</Link></li>
                       </ul>
                     </div>
