@@ -4,10 +4,10 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import TermsOfService from './pages/TermsOfService';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import Pricing from './pages/Pricing';
+import { MessageSquare, Eye, Edit3, ArrowRight } from 'lucide-react';
 
 function App() {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [inputText, setInputText] = useState('');
   const [email, setEmail] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
@@ -18,7 +18,7 @@ function App() {
     return re.test(email);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     
     if (!validateEmail(email)) {
@@ -30,12 +30,34 @@ function App() {
     setEmailError('');
     setIsSubmitting(true);
     
-    // Simulate API call
-    setTimeout(() => {
+    try {
+      const response = await fetch('https://sheetdb.io/api/v1/tem6ums13h51p', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          data: [{
+            email: email,
+            timestamp: new Date().toISOString()
+          }]
+        })
+      });
+      
+      if (response.ok) {
+        setSubmitStatus('success');
+        setEmail('');
+        // Update user count if needed
+      } else {
+        throw new Error('Submission failed');
+      }
+    } catch (error) {
+      setSubmitStatus('error');
+      setEmailError('Failed to submit. Please try again.');
+    } finally {
       setIsSubmitting(false);
-      setSubmitStatus('success');
-      setEmail('');
-    }, 1500);
+    }
   };
 
   // Handle scroll effect for header
@@ -123,88 +145,22 @@ function App() {
               {/* Hero Section */}
               <section className="relative bg-gradient-to-br from-blue-600 to-orange-500 text-white pt-32 pb-20">
                 <div className="container mx-auto px-6">
-                  <div className="grid md:grid-cols-2 gap-12 items-center">
+                  <div className="max-w-3xl mx-auto text-center space-y-6">
                     <motion.div
                       initial="hidden"
                       animate="visible"
                       variants={fadeInUp}
-                      className="max-w-lg"
                     >
-                      <h1 className="text-5xl font-bold leading-tight mb-6">
+                      <h1 className="text-5xl md:text-6xl font-bold leading-tight mb-6 tracking-tight">
                         Create Device Firmware
                         <br />
-                        <span className="text-blue-200">Using Natural Language</span>
+                        <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-200 to-orange-100">
+                          Using Natural Language
+                        </span>
                       </h1>
-                      <p className="text-xl text-blue-100 mb-8">
+                      <p className="text-xl md:text-2xl text-blue-100/90 leading-relaxed max-w-2xl mx-auto">
                         Describe your device's behavior in plain English and get optimized firmware code instantly.
                       </p>
-                    </motion.div>
-                    <motion.div
-                      initial={{ opacity: 0, x: 20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.8, delay: 0.2 }}
-                      className="relative"
-                    >
-                      <div className="bg-white rounded-lg shadow-2xl overflow-hidden">
-                        <div className="bg-gray-100 p-3 flex items-center">
-                          <div className="flex space-x-2">
-                            <div className="w-3 h-3 bg-red-500 rounded-full"></div>
-                            <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
-                            <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                          </div>
-                          <div className="ml-6 flex space-x-4">
-                            <div className="px-3 py-1 bg-blue-600 rounded text-white text-sm font-medium">
-                              InitFlow AI Assistant
-                            </div>
-                          </div>
-                        </div>
-                        <div className="p-6">
-                          <div className="mb-4">
-                            <div className="bg-gray-100 p-3 rounded-lg flex items-center mb-4">
-                              <input 
-                                type="text" 
-                                placeholder="Tell InitFlow what you want your device to do..." 
-                                className="w-full bg-transparent border-none focus:outline-none text-gray-800"
-                                value={inputText}
-                                onChange={(e) => setInputText(e.target.value)}
-                              />
-                              <button className="ml-2 bg-blue-600 text-white p-2 rounded-full">
-                                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
-                                </svg>
-                              </button>
-                            </div>
-                          </div>
-                          <div className="space-y-4">
-                            <div className="bg-gray-100 p-4 rounded-lg">
-                              <div className="flex justify-between items-center mb-3">
-                                <h4 className="font-medium text-gray-800">Virtual Device Simulator</h4>
-                                <span className="px-2 py-1 bg-green-500/20 text-green-600 text-xs rounded-full">Running</span>
-                              </div>
-                              <div className="flex items-center justify-center bg-gray-200 rounded-lg p-6">
-                                <div className="relative">
-                                  {/* LED Light Simulation */}
-                                  <div className="w-16 h-16 bg-yellow-400 rounded-full shadow-lg animate-pulse"></div>
-                                  {/* Motion Sensor */}
-                                  <div className="absolute -right-4 -top-4 w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center">
-                                    <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 10h.01M17 10h.01M20 10h.01M14 14h.01M17 14h.01M20 14h.01M8 10h.01M11 10h.01M8 14h.01M11 14h.01" />
-                                    </svg>
-                                  </div>
-                                </div>
-                              </div>
-                              <div className="mt-3 text-sm text-gray-600">
-                                <p>Behavior generated by InitFlow AI under our Terms of Service</p>
-                                <div className="flex items-center mt-2">
-                                  <button className="text-blue-600 text-xs">Edit behavior</button>
-                                  <span className="mx-2 text-gray-400">•</span>
-                                  <button className="text-blue-600 text-xs">View Terms</button>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
                     </motion.div>
                   </div>
                 </div>
@@ -214,46 +170,6 @@ function App() {
                   <div className="absolute -top-1/2 -left-1/4 w-full h-full bg-blue-600 rounded-full opacity-10 blur-3xl"></div>
                 </div>
               </section>
-
-              {/* Preview App Demo Section */}
-              <motion.section
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, margin: "-100px" }}
-                variants={staggerContainer}
-                className="py-20 bg-white"
-              >
-                <div className="container mx-auto px-6">
-                  <motion.h2
-                    variants={fadeInUp}
-                    className="text-3xl font-bold text-center mb-12"
-                  >
-                    From Imagination to Reality in Seconds
-                  </motion.h2>
-                  <div className="grid md:grid-cols-1 gap-12 items-center justify-center">
-                    <motion.div variants={fadeInUp} className="relative max-w-2xl mx-auto">
-                      <div className="rounded-lg shadow-lg overflow-hidden bg-gray-100 aspect-video flex items-center justify-center">
-                        <img
-                          src="https://via.placeholder.com/800x450"
-                          alt="Firmware programming demo"
-                          className="w-full"
-                        />
-                        <div className="absolute inset-0 flex items-center justify-center">
-                          <button className="bg-blue-600/80 p-4 rounded-full hover:bg-blue-600 transition-colors">
-                            <svg
-                              className="w-12 h-12 text-white"
-                              fill="currentColor"
-                              viewBox="0 0 24 24"
-                            >
-                              <path d="M8 5v14l11-7z" />
-                            </svg>
-                          </button>
-                        </div>
-                      </div>
-                    </motion.div>
-                  </div>
-                </div>
-              </motion.section>
 
               {/* Features Section */}
               <section id="features" className="py-20 bg-gray-50">
@@ -278,19 +194,19 @@ function App() {
                     whileInView="visible"
                     viewport={{ once: true, margin: "-100px" }}
                     variants={staggerContainer}
-                    className="grid md:grid-cols-2 lg:grid-cols-4 gap-8"
+                    className="grid md:grid-cols-3 gap-8"
                   >
                     {[
                       {
                         icon: (
                           <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth={2}
-                              d="M12 6v6m0 0v6m0-6h6m-6 0H6"
-                            />
-                          </svg>
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+                          />
+                        </svg>
                         ),
                         title: 'Hardware-Aware Code Generation',
                         description:
@@ -303,28 +219,13 @@ function App() {
                               strokeLinecap="round"
                               strokeLinejoin="round"
                               strokeWidth={2}
-                              d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"
-                            />
-                          </svg>
-                        ),
-                        title: 'Sensor & Peripheral Support',
-                        description:
-                          'Works with common sensors (DHT, PIR, ultrasonic) and peripherals (LEDs, relays, displays) out of the box.',
-                      },
-                      {
-                        icon: (
-                          <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth={2}
                               d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
                             />
                           </svg>
                         ),
-                        title: 'Virtual Hardware Testing',
+                        title: 'See Realtime Device Output',
                         description:
-                          'Test your firmware on virtual hardware before flashing to physical devices.',
+                          'Monitor your device behavior and debug with live serial output visualization.',
                       },
                       {
                         icon: (
@@ -337,9 +238,9 @@ function App() {
                             />
                           </svg>
                         ),
-                        title: 'One-Click Deployment',
+                        title: 'One-Click Upload',
                         description:
-                          'Download ready-to-flash firmware binaries or use our web-based flasher tool.',
+                          'Instantly upload firmware to your device with a single click.',
                       }
                     ].map((feature, index) => (
                       <motion.div
@@ -379,17 +280,17 @@ function App() {
                   >
                     {[
                       {
-                        icon: "👩‍💻",
+                        icon: <MessageSquare className="w-10 h-10 mx-auto" />,
                         title: "Makers & Hobbyists",
                         description: "Bring your IoT ideas to life without deep coding knowledge"
                       },
                       {
-                        icon: "🏭",
+                        icon: <Eye className="w-10 h-10 mx-auto" />,
                         title: "Prototypers",
                         description: "Rapidly prototype hardware concepts before investing in custom development"
                       },
                       {
-                        icon: "🏫",
+                        icon: <Edit3 className="w-10 h-10 mx-auto" />,
                         title: "Educators",
                         description: "Teach electronics and IoT concepts without getting bogged down in complex coding"
                       }
@@ -399,85 +300,12 @@ function App() {
                         variants={fadeInUp}
                         className="bg-gray-50 p-6 rounded-lg text-center"
                       >
-                        <div className="text-4xl mb-4">{audience.icon}</div>
+                        <div className="flex justify-center mb-4">{audience.icon}</div>
                         <h3 className="text-xl font-bold mb-2">{audience.title}</h3>
                         <p className="text-gray-600">{audience.description}</p>
                       </motion.div>
                     ))}
                   </motion.div>
-                </div>
-              </section>
-
-              {/* Workflow Section */}
-              <section id="solutions" className="py-20 bg-gray-50">
-                <div className="container mx-auto px-6">
-                  <div className="grid md:grid-cols-2 gap-12 items-center">
-                    <motion.div
-                      initial="hidden"
-                      whileInView="visible"
-                      viewport={{ once: true, margin: "-100px" }}
-                      variants={fadeInUp}
-                    >
-                      <h2 className="text-3xl font-bold mb-6">
-                        From Words to Actions, <span className="text-blue-600">Instantly</span>
-                      </h2>
-                      <p className="text-gray-600 mb-6">
-                        Simply describe what you want in everyday language, and watch as InitFlow translates your words into device actions - no coding required. The magic happens behind the scenes, letting you focus on ideas, not implementation.
-                      </p>
-                    </motion.div>
-
-                    <motion.div
-                      initial={{ opacity: 0 }}
-                      whileInView={{ opacity: 1 }}
-                      viewport={{ once: true, margin: "-100px" }}
-                      transition={{ duration: 0.8 }}
-                      className="relative"
-                    >
-                      <div className="bg-white p-8 rounded-lg shadow-md">
-                        <motion.div
-                          initial="hidden"
-                          whileInView="visible"
-                          viewport={{ once: true }}
-                          variants={staggerContainer}
-                        >
-                          {[
-                            {
-                              step: 1,
-                              title: 'Describe',
-                              description: 'Tell InitFlow what you want your device to do in plain English.',
-                              icon: '💬'
-                            },
-                            {
-                              step: 2,
-                              title: 'Watch',
-                              description: 'See your instructions translated into device actions in real-time.',
-                              icon: '👁️'
-                            },
-                            {
-                              step: 3,
-                              title: 'Refine',
-                              description: 'Adjust through simple conversation - "make it faster" or "add a delay".',
-                              icon: '✏️'
-                            },
-                          ].map((item, index) => (
-                            <motion.div
-                              key={index}
-                              variants={fadeInUp}
-                              className="flex items-center mb-6"
-                            >
-                              <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-orange-400 text-white rounded-full flex items-center justify-center mr-4 shadow-md">
-                                <span className="text-xl">{item.icon}</span>
-                              </div>
-                              <div>
-                                <h4 className="text-lg font-bold">{item.title}</h4>
-                                <p className="text-gray-600">{item.description}</p>
-                              </div>
-                            </motion.div>
-                          ))}
-                        </motion.div>
-                      </div>
-                    </motion.div>
-                  </div>
                 </div>
               </section>
 
@@ -523,7 +351,7 @@ function App() {
                           <div className="relative">
                             <label htmlFor="waitlist-email" className="sr-only">Email address</label>
                             <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                              <svg className="h-5 w-5 text-blue-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                              <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                               </svg>
                             </div>
@@ -563,9 +391,7 @@ function App() {
                               </>
                             ) : (
                               <>
-                                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 7h8m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
-                                </svg>
+                                <ArrowRight className="w-5 h-5" />
                                 Join Priority Waitlist
                               </>
                             )}
