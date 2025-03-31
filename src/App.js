@@ -443,7 +443,7 @@ function App() {
               </section>
 
               {/* Workflow Section */}
-              <section id="solutions" className="py-20">
+              <section id="solutions" className="py-20 bg-gray-50">
                 <div className="container mx-auto px-6">
                   <div className="grid md:grid-cols-2 gap-12 items-center">
                     <motion.div
@@ -453,17 +453,16 @@ function App() {
                       variants={fadeInUp}
                     >
                       <h2 className="text-3xl font-bold mb-6">
-                        A true autonomy platform, not just another automation tool
+                        From Words to Actions, <span className="text-blue-600">Instantly</span>
                       </h2>
                       <p className="text-gray-600 mb-6">
-                        Deploy fully autonomous workflows capable of understanding context, making
-                        decisions, and executing complete workflows without constant supervision.
+                        Simply describe what you want in everyday language, and watch as InitFlow translates your words into device actions - no coding required. The magic happens behind the scenes, letting you focus on ideas, not implementation.
                       </p>
                       <motion.button
                         whileHover={{ x: 5 }}
-                        className="text-blue-600 font-medium flex items-center"
+                        className="text-orange-500 font-medium flex items-center"
                       >
-                        Learn more
+                        Try it yourself
                         <svg
                           className="w-5 h-5 ml-1"
                           fill="none"
@@ -487,7 +486,7 @@ function App() {
                       transition={{ duration: 0.8 }}
                       className="relative"
                     >
-                      <div className="bg-gray-50 p-8 rounded-lg">
+                      <div className="bg-white p-8 rounded-lg shadow-md">
                         <motion.div
                           initial="hidden"
                           whileInView="visible"
@@ -497,32 +496,36 @@ function App() {
                           {[
                             {
                               step: 1,
-                              title: 'Task Assignment',
-                              description: 'AI receives and understands the task.',
+                              title: 'Describe',
+                              description: 'Tell InitFlow what you want your device to do in plain English.',
+                              icon: '💬'
                             },
                             {
                               step: 2,
-                              title: 'Decision Making',
-                              description: 'AI analyzes data and makes informed decisions.',
+                              title: 'Watch',
+                              description: 'See your instructions translated into device actions in real-time.',
+                              icon: '👁️'
                             },
                             {
                               step: 3,
-                              title: 'Execution',
-                              description: 'AI performs the necessary actions.',
+                              title: 'Refine',
+                              description: 'Adjust through simple conversation - "make it faster" or "add a delay".',
+                              icon: '✏️'
                             },
                             {
                               step: 4,
-                              title: 'Completion',
-                              description: 'AI verifies and completes the task.',
+                              title: 'Share',
+                              description: 'Send a single link so others can see and interact with your creation.',
+                              icon: '🔗'
                             },
                           ].map((item, index) => (
                             <motion.div
                               key={index}
                               variants={fadeInUp}
-                              className="flex items-center mb-4"
+                              className="flex items-center mb-6"
                             >
-                              <div className="w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center mr-4">
-                                {item.step}
+                              <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-orange-400 text-white rounded-full flex items-center justify-center mr-4 shadow-md">
+                                <span className="text-xl">{item.icon}</span>
                               </div>
                               <div>
                                 <h4 className="text-lg font-bold">{item.title}</h4>
@@ -544,7 +547,7 @@ function App() {
                     <div>
                       <h3 className="text-xl font-bold mb-4">InitFlow</h3>
                       <p className="text-gray-400">
-                        Transforming businesses with autonomous workflows.
+                        Making technology work for you, through the power of words.
                       </p>
                     </div>
                     <div>
