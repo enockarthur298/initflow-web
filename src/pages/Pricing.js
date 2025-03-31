@@ -12,7 +12,7 @@ const Pricing = () => {
             Simple, Transparent Pricing
           </h1>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Unlock the power of autonomous workflows with our flexible monthly plan
+            Program devices using natural language - no coding required
           </p>
         </div>
 
@@ -27,17 +27,18 @@ const Pricing = () => {
             </div>
             
             <div className="mb-6">
-              <span className="text-5xl font-extrabold text-gray-900">$50</span>
+              <span className="text-5xl font-extrabold text-gray-900">$</span>
+              <span className="text-5xl font-extrabold text-gray-900">$</span>
               <span className="text-xl text-gray-500 ml-2">/month</span>
             </div>
 
             <ul className="space-y-4 mb-8">
               {[
-                "Unlimited access to all features",
-                "24/7 priority customer support",
+                "Create firmware with natural language commands",
+                "No programming experience needed",
+                "Works with common IoT devices",
                 "Cancel anytime",
-                "No hidden fees",
-                "Regular feature updates"
+                "24/7 support"
               ].map((feature, index) => (
                 <li key={index} className="flex items-center text-gray-700">
                   <Check className="w-5 h-5 mr-3 text-blue-600" />
@@ -55,32 +56,31 @@ const Pricing = () => {
 
       {/* Footer */}
       <footer className="bg-gray-900 text-white py-12">
-        <div className="container mx-auto px-6 max-w-7xl">
+        <div className="container mx-auto px-6">
           <div className="grid md:grid-cols-3 gap-8">
             <div>
-              <h3 className="text-2xl font-bold mb-4 text-white">InitFlow</h3>
-              <p className="text-gray-400 text-sm">
-                Transforming businesses with cutting-edge autonomous virtual workers.
+              <h3 className="text-xl font-bold mb-4">InitFlow</h3>
+              <p className="text-gray-400">
+                Making technology work for you, through the power of words.
               </p>
             </div>
             <div>
-              <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
+              <h4 className="text-lg font-bold mb-4">Quick Links</h4>
               <ul className="space-y-2">
-                <li><a href="#features" className="text-gray-400 hover:text-blue-500 transition-colors">Features</a></li>
-                <li><a href="#solutions" className="text-gray-400 hover:text-blue-500 transition-colors">Solutions</a></li>
-                <li><Link to="/pricing" className="text-gray-400 hover:text-blue-500 transition-colors">Pricing</Link></li>
+                <li><a href="#features" className="text-gray-400 hover:text-blue-600 transition-colors">Features</a></li>
+                <li><Link to="/pricing" className="text-gray-400 hover:text-blue-600 transition-colors">Pricing</Link></li>
               </ul>
             </div>
             <div>
-              <h4 className="text-lg font-semibold mb-4">Legal</h4>
+              <h4 className="text-lg font-bold mb-4">Legal</h4>
               <ul className="space-y-2">
-                <li><Link to="/privacy-policy" className="text-gray-400 hover:text-blue-500 transition-colors">Privacy Policy</Link></li>
-                <li><Link to="/terms-of-service" className="text-gray-400 hover:text-blue-500 transition-colors">Terms of Service</Link></li>
+                <li><Link to="/privacy-policy" className="text-gray-400 hover:text-blue-600 transition-colors">Privacy Policy</Link></li>
+                <li><Link to="/terms-of-service" className="text-gray-400 hover:text-blue-600 transition-colors">Terms of Service</Link></li>
               </ul>
             </div>
           </div>
-          <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400 text-sm">
-            &copy; 2025 InitFlow. All rights reserved.
+          <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+            2025 InitFlow. All rights reserved.
           </div>
         </div>
       </footer>
