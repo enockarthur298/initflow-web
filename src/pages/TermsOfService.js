@@ -3,61 +3,57 @@ import React from 'react';
 const TermsOfService = () => {
   return (
     <div className="max-w-4xl mx-auto px-4 py-12">
-      <h1 className="text-3xl font-bold mb-4">Terms of Service</h1>
-      <p className="text-gray-500 mb-8">Last updated: March 27, 2025</p>
+      <h1 className="text-3xl font-bold mb-4">InitFlow Terms of Service</h1>
+      <p className="text-gray-500 mb-8">Last updated: March 31, 2025</p>
       <div className="space-y-6">
         <section>
-          <h2 className="text-xl font-semibold mb-2">Acceptance of Terms</h2>
+          <h2 className="text-xl font-semibold mb-2">1. Acceptance of Terms</h2>
           <p className="text-gray-600">
-            By accessing or using our platform, you agree to these Terms of Service.
+            By accessing or using InitFlow's AI-powered firmware programming platform ("Service"),
+            you agree to be bound by these Terms of Service ("Terms"). If you do not agree to all the Terms,
+            you may not use our Service.
           </p>
         </section>
+        
         <section>
-          <h2 className="text-xl font-semibold mb-2">Subscription Plans</h2>
+          <h2 className="text-xl font-semibold mb-2">2. Service Description</h2>
           <p className="text-gray-600">
-            Our platform operates on a monthly subscription basis. Fees are billed in advance and are non-refundable.
+            InitFlow provides an AI-assisted platform that converts natural language descriptions
+            into functional firmware code for microcontrollers including but not limited to
+            Raspberry Pi Pico, ESP32, and Arduino devices.
           </p>
+        </section>
+        
+        <section>
+          <h2 className="text-xl font-semibold mb-2">3. Subscription Plans</h2>
           <p className="text-gray-600">
+            InitFlow operates on a monthly subscription basis. Fees are billed in advance and are non-refundable.
             You may cancel your subscription at any time, and access will continue until the end of the billing cycle.
           </p>
         </section>
+        
         <section>
-          <h2 className="text-xl font-semibold mb-2">Refund Policy</h2>
+          <h2 className="text-xl font-semibold mb-2">4. Intellectual Property</h2>
           <p className="text-gray-600">
-            Refunds are only issued in cases of technical issues on our end that prevent you from using the platform as intended. To request a refund, contact us at <a href="mailto:initflowinfo@gmail.com" className="text-blue-600 hover:underline">initflowinfo@gmail.com</a> within 7 days of the issue occurring.
+            All content and technology comprising the InitFlow platform, including AI models and interfaces,
+            are the exclusive property of InitFlow. Generated firmware code may be used freely for personal
+            and commercial projects.
           </p>
         </section>
+        
         <section>
-          <h2 className="text-xl font-semibold mb-2">User Responsibilities</h2>
+          <h2 className="text-xl font-semibold mb-2">5. Limitation of Liability</h2>
           <p className="text-gray-600">
-            You are responsible for maintaining the accuracy of your account information.
-          </p>
-          <p className="text-gray-600">
-            You agree not to use the platform for any unlawful or unauthorized purposes, including but not limited to hacking, data scraping, or distributing malicious software.
-          </p>
-        </section>
-        <section>
-          <h2 className="text-xl font-semibold mb-2">Support</h2>
-          <p className="text-gray-600">
-            For assistance, contact us at <a href="mailto:initflowinfo@gmail.com" className="text-blue-600 hover:underline">initflowinfo@gmail.com</a>. We aim to respond to all inquiries within 24-48 hours.
+            InitFlow shall not be liable for any damages resulting from the use of generated firmware code.
+            Users are responsible for testing and verifying all code before deployment to physical devices.
           </p>
         </section>
+        
         <section>
-          <h2 className="text-xl font-semibold mb-2">Limitation of Liability</h2>
+          <h2 className="text-xl font-semibold mb-2">6. Contact Information</h2>
           <p className="text-gray-600">
-            We are not responsible for any indirect, incidental, special, or consequential damages that may arise from your use of the platform.
-          </p>
-        </section>
-        <section>
-          <h2 className="text-xl font-semibold mb-2">Termination</h2>
-          <p className="text-gray-600">
-            We reserve the right to suspend or terminate your account at any time, with notice, for violations of these terms or any misuse of the platform.
-          </p>
-        </section>
-        <section>
-          <h2 className="text-xl font-semibold mb-2">Changes to Terms</h2>
-          <p className="text-gray-600">
-            We may update these Terms of Service from time to time. Continued use of the platform after such changes constitutes your acceptance of the revised terms.
+            For questions about these Terms, please contact InitFlow at:
+            <a href="mailto:initflowinfo@gmail.com" className="text-blue-600 hover:underline">initflowinfo@gmail.com</a>
           </p>
         </section>
       </div>
