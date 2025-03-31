@@ -1,4 +1,31 @@
-{
+Design a magical landing page for 'Mover' where users describe what they want their devices to do in plain English, and see it happen - no code visible. Core concept:
+
+Hero Statement:
+"Tell it. Watch it work."
+Visual flow:
+• User types "Make my lights blink when someone approaches"
+• Virtual device (LED + motion sensor) immediately demonstrates this behavior
+Key Features (Without Jargon):
+• Turn everyday language into device actions instantly
+• Fix mistakes through conversation ("Make it faster")
+• Test ideas on realistic virtual hardware
+• Share working projects with one link
+Visual Requirements:
+Clean, app-like interface hiding all technical elements
+Color theme: Warm orange (action) + trust blue
+Show:
+• Text input box: "Describe your device's behavior..."
+• Live device simulator reacting to commands
+• Example gallery:
+"Notify me when mail arrives" → mailbox sensor demo
+"Water plants every morning" → self-watering garden
+For:
+• Teachers making tech accessible
+• Makers who think in results, not code
+• Beginners intimidated by programming
+Tone: "You imagine, we handle the magic"
+CTAs: "Describe Your Idea" + "See It Work Free"
+Include: Mobile demo video showing 30-second creation cycle"
   "name": "hotel-frontend",
   "version": "0.1.0",
   "private": true,

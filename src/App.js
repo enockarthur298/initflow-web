@@ -7,8 +7,13 @@ import Pricing from './pages/Pricing';
 
 function App() {
   const [isScrolled, setIsScrolled] = useState(false);
-  //const navigate = useNavigate();
-
+  const [deviceCommand, setDeviceCommand] = useState('');
+  const [currentSimulation, setCurrentSimulation] = useState({
+    title: 'Make my lights blink when someone approaches',
+    description: 'LED lights + motion sensor',
+    active: true
+  });
+  
   // Handle scroll effect for header
   useEffect(() => {
     const handleScroll = () => {
@@ -35,6 +40,42 @@ function App() {
     },
   };
 
+  const handleCommandSubmit = (e) => {
+    e.preventDefault();
+    if (deviceCommand.trim()) {
+      setCurrentSimulation({
+        title: deviceCommand,
+        description: 'Virtual device simulation',
+        active: true
+      });
+      setDeviceCommand('');
+    }
+  };
+
+  // Example gallery items
+  const exampleGallery = [
+    {
+      title: "Make my lights blink when someone approaches",
+      description: "LED lights + motion sensor",
+      icon: "💡"
+    },
+    {
+      title: "Notify me when mail arrives",
+      description: "Mailbox sensor notification",
+      icon: "📬"
+    },
+    {
+      title: "Water plants every morning",
+      description: "Self-watering garden system",
+      icon: "🌱"
+    },
+    {
+      title: "Turn on fan when room gets too hot",
+      description: "Temperature-controlled fan",
+      icon: "🌡️"
+    }
+  ];
+
   return (
     <Router>
       <Routes>
@@ -46,7 +87,7 @@ function App() {
           element={
             <div className="font-sans text-gray-900 bg-white">
               {/* Header */}
-              <nav className={`fixed w-full z-50 transition-all ${isScrolled ? 'backdrop-blur bg-white/20 shadow-sm' : 'backdrop-blur bg-white/5'} py-4`}>
+              <nav className={`fixed w-full z-50 transition-all ${isScrolled ? 'backdrop-blur bg-white/90 shadow-sm' : 'backdrop-blur bg-white/5'} py-4`}>
                 <div className="container mx-auto px-4">
                   <div className="flex justify-between items-center">
                     <motion.div
@@ -55,12 +96,12 @@ function App() {
                       className="flex items-center"
                     >
                       <h1 className="text-2xl font-bold">
-                        InitFlow<span className="text-blue-600">AI</span>
+                        Init<span className="text-orange-500">Flow</span>
                       </h1>
                     </motion.div>
 
                     <ul className="hidden md:flex space-x-8">
-                      {['Features', 'Pricing', 'Enterprise'].map((item) => (
+                      {['Features', 'Examples', 'Pricing'].map((item) => (
                         <motion.li
                           key={item}
                           whileHover={{ scale: 1.05 }}
@@ -87,9 +128,9 @@ function App() {
                       <motion.button
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
-                        className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md transition-colors"
+                        className="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-md transition-colors"
                       >
-                        Sign up
+                        Try It Free
                       </motion.button>
                     </div>
                   </div>
@@ -97,7 +138,7 @@ function App() {
               </nav>
 
               {/* Hero Section */}
-              <section className="relative bg-black text-white pt-32 pb-20">
+              <section className="relative bg-gradient-to-br from-blue-600 to-blue-800 text-white pt-32 pb-20">
                 <div className="container mx-auto px-6">
                   <div className="grid md:grid-cols-2 gap-12 items-center">
                     <motion.div
@@ -108,23 +149,32 @@ function App() {
                     >
                       <motion.h1
                         variants={fadeInUp}
-                        className="text-5xl font-bold leading-tight mb-6"
+                        className="text-6xl font-bold leading-tight mb-6"
                       >
-                        Your AI workforce, <br /> ready to transform <br /> your work and business
+                        Tell it. <br />
+                        <span className="text-orange-400">Watch it work.</span>
                       </motion.h1>
                       <motion.p
                         variants={fadeInUp}
-                        className="text-xl text-gray-300 mb-8"
+                        className="text-xl text-blue-100 mb-8"
                       >
-                        Join thousands of individuals and businesses using InitFlow to automate workflows,
-                        reduce costs, and accelerate growth with automated worflows.
+                        Describe what you want your devices to do in plain English, 
+                        and see it happen instantly. No coding required.
                       </motion.p>
                       <motion.div variants={fadeInUp} className="flex flex-wrap gap-4">
-                        <button
-                          className="bg-gray-600/50 hover:bg-gray-600/70 text-gray-300 px-6 py-3 rounded-md font-medium transition-colors cursor-not-allowed"
-                          disabled
+                        <a 
+                          href="#try-it"
+                          className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-md font-medium transition-colors inline-flex items-center"
                         >
-                          Coming Soon
+                          Describe Your Idea
+                          <svg className="w-5 h-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                          </svg>
+                        </a>
+                        <button
+                          className="bg-white/20 hover:bg-white/30 text-white px-6 py-3 rounded-md font-medium transition-colors"
+                        >
+                          See It Work Free
                         </button>
                       </motion.div>
                     </motion.div>
@@ -134,343 +184,350 @@ function App() {
                       transition={{ duration: 0.8, delay: 0.2 }}
                       className="relative"
                     >
-                      <div className="bg-gray-900 rounded-lg shadow-2xl overflow-hidden">
-                        <div className="bg-gray-800 p-3 flex items-center">
+                      <div className="bg-white rounded-lg shadow-2xl overflow-hidden">
+                        <div className="bg-gray-100 p-3 flex items-center">
                           <div className="flex space-x-2">
                             <div className="w-3 h-3 bg-red-500 rounded-full"></div>
                             <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
                             <div className="w-3 h-3 bg-green-500 rounded-full"></div>
                           </div>
-                          <div className="ml-6 flex space-x-4">
-                            <div className="px-3 py-1 bg-gray-700 rounded text-white text-sm font-medium">
-                              Workers
+                          <div className="ml-6 flex-1 text-center">
+                            <div className="text-gray-700 text-sm font-medium">
+                              Device Simulator
                             </div>
-                            <div className="px-3 py-1 rounded text-gray-400 text-sm">Tasks</div>
-                            <div className="px-3 py-1 rounded text-gray-400 text-sm">Analytics</div>
                           </div>
                         </div>
                         <div className="p-6">
                           <div className="space-y-4">
-                            {[
-                              { title: 'Data Assistant', task: 'Processing data entries', status: 'active' },
-                              { title: 'Customer Service', task: 'Handling inquiries', status: 'active' },
-                              { title: 'Scheduler', task: 'Managing appointments', status: 'idle' },
-                            ].map((worker, index) => (
-                              <motion.div
-                                key={index}
-                                initial={{ opacity: 0, y: 10 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 0.3 + index * 0.1 }}
-                                className="bg-gray-800 p-4 rounded-lg flex items-center"
-                              >
-                                <div className="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold">
-                                  {worker.title[0]}
+                            <div className="bg-blue-50 p-4 rounded-lg">
+                              <h4 className="text-blue-800 font-medium mb-2">Current Command:</h4>
+                              <p className="text-gray-700 font-medium">{currentSimulation.title}</p>
+                              <div className="mt-3 text-sm text-gray-500">{currentSimulation.description}</div>
+                            </div>
+                            
+                            <div className="bg-gray-50 p-6 rounded-lg flex items-center justify-center min-h-[200px]">
+                              <div className="text-center">
+                                <div className="relative inline-block">
+                                  {/* Simulated LED light */}
+                                  <div className="w-16 h-16 rounded-full bg-gray-200 mx-auto mb-4 relative overflow-hidden">
+                                    <div className={`absolute inset-0 bg-yellow-400 ${currentSimulation.active ? 'animate-pulse' : ''}`}></div>
+                                  </div>
+                                  {/* Simulated motion sensor */}
+                                  <div className="w-8 h-8 rounded-full bg-blue-500 absolute -right-2 -top-2 flex items-center justify-center">
+                                    <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                  </div>
                                 </div>
-                                <div className="ml-4 flex-grow">
-                                  <h4 className="text-white font-medium">{worker.title}</h4>
-                                  <p className="text-gray-400 text-sm">{worker.task}</p>
-                                </div>
-                                <div
-                                  className={`px-3 py-1 rounded-full text-xs font-medium ${
-                                    worker.status === 'active'
-                                      ? 'bg-green-500/20 text-green-500'
-                                      : 'bg-yellow-500/20 text-yellow-500'
-                                  }`}
+                                <p className="text-gray-700 mt-4">Motion detected! Lights blinking.</p>
+                              </div>
+                            </div>
+                            
+                            <div className="mt-4">
+                              <h4 className="text-gray-700 font-medium mb-2">Try a different command:</h4>
+                              <form onSubmit={handleCommandSubmit} className="flex">
+                                <input
+                                  type="text"
+                                  value={deviceCommand}
+                                  onChange={(e) => setDeviceCommand(e.target.value)}
+                                  placeholder="Describe your device's behavior..."
+                                  className="flex-1 p-3 border border-gray-300 rounded-l-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                />
+                                <button 
+                                  type="submit"
+                                  className="bg-orange-500 text-white p-3 rounded-r-md hover:bg-orange-600 transition-colors"
                                 >
-                                  {worker.status === 'active' ? 'Active' : 'Idle'}
-                                </div>
-                              </motion.div>
-                            ))}
+                                  Try It
+                                </button>
+                              </form>
+                            </div>
                           </div>
                         </div>
                       </div>
                     </motion.div>
                   </div>
                 </div>
-                <div className="absolute bottom-0 left-0 right-0 h-64 bg-gradient-to-t from-black to-transparent"></div>
                 <div className="absolute inset-0 overflow-hidden">
-                  <div className="absolute -bottom-1/2 -right-1/4 w-full h-full bg-blue-600 rounded-full opacity-10 blur-3xl"></div>
-                  <div className="absolute -top-1/2 -left-1/4 w-full h-full bg-purple-600 rounded-full opacity-10 blur-3xl"></div>
+                  <div className="absolute -bottom-1/2 -right-1/4 w-full h-full bg-orange-500 rounded-full opacity-10 blur-3xl"></div>
+                  <div className="absolute -top-1/2 -left-1/4 w-full h-full bg-blue-400 rounded-full opacity-10 blur-3xl"></div>
                 </div>
               </section>
 
-              {/* Preview App Demo Section */}
-              <motion.section
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, margin: "-100px" }}
-                variants={staggerContainer}
-                className="py-20 bg-white"
-              >
+              {/* Example Gallery Section */}
+              <section id="examples" className="py-20 bg-white">
                 <div className="container mx-auto px-6">
                   <motion.h2
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
                     variants={fadeInUp}
-                    className="text-3xl font-bold text-center mb-12"
+                    className="text-3xl font-bold text-center mb-4"
                   >
-                    Preview App Demo
+                    Example Gallery
                   </motion.h2>
-                  <div className="grid md:grid-cols-2 gap-12 items-center">
-                    {/* Video Placeholder */}
-                    <motion.div variants={fadeInUp} className="relative">
-                      <img
-                        src="https://via.placeholder.com/600x400"
-                        alt="App Demo"
-                        className="rounded-lg shadow-lg w-full"
-                      />
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <button className="bg-white/30 p-4 rounded-full">
-                          <svg
-                            className="w-12 h-12 text-white"
-                            fill="currentColor"
-                            viewBox="0 0 24 24"
-                          >
-                            <path d="M8 5v14l11-7z" />
-                          </svg>
-                        </button>
-                      </div>
-                    </motion.div>
-                    {/* Key Feature Highlights */}
-                    <motion.div variants={fadeInUp}>
-                      <h3 className="text-2xl font-bold mb-6">Key Features Demonstrated</h3>
-                      <ul className="space-y-4">
-                        {[
-                          {
-                            title: "Intuitive Dashboard",
-                            description:
-                              "Manage all your workflows from a single, easy-to-use interface.",
-                          },
-                          {
-                            title: "Task Automation",
-                            description:
-                              "See how to automate repetitive tasks with just a description.",
-                          },
-                          {
-                            title: "Real-time Analytics",
-                            description: "Monitor performance and productivity in real-time.",
-                          },
-                          {
-                            title: "Seamless Integration",
-                            description:
-                              "Integrate with your existing tools and data sources easily.",
-                          },
-                        ].map((feature, index) => (
-                          <li key={index} className="flex items-start">
-                            <svg
-                              className="w-6 h-6 text-blue-600 mr-2"
-                              fill="none"
-                              stroke="currentColor"
-                              viewBox="0 0 24 24"
-                            >
-                              <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth={2}
-                                d="M5 13l4 4L19 7"
-                              />
-                            </svg>
-                            <div>
-                              <h4 className="text-lg font-semibold">{feature.title}</h4>
-                              <p className="text-gray-600">{feature.description}</p>
-                            </div>
-                          </li>
-                        ))}
-                      </ul>
-                    </motion.div>
-                  </div>
-                </div>
-              </motion.section>
-
-              {/* Features Section */}
-              <section id="features" className="py-20 bg-gray-50">
-                <div className="container mx-auto px-6">
-                  <motion.div
+                  <motion.p
                     initial="hidden"
                     whileInView="visible"
-                    viewport={{ once: true, margin: "-100px" }}
+                    viewport={{ once: true }}
                     variants={fadeInUp}
-                    className="text-center max-w-2xl mx-auto mb-16"
+                    className="text-gray-600 text-center max-w-2xl mx-auto mb-12"
                   >
-                    <h2 className="text-4xl font-bold mb-4">
-                      Where automation and <br /> intelligence become one
-                    </h2>
-                  </motion.div>
-
+                    Browse through these examples to see how InitFlow turns simple descriptions into working device behaviors.
+                  </motion.p>
+                  
                   <motion.div
                     initial="hidden"
                     whileInView="visible"
-                    viewport={{ once: true, margin: "-100px" }}
+                    viewport={{ once: true }}
                     variants={staggerContainer}
-                    className="grid md:grid-cols-2 lg:grid-cols-4 gap-8"
+                    className="grid md:grid-cols-2 lg:grid-cols-4 gap-6"
                   >
-                    {[
-                      {
-                        icon: (
-                          <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth={2}
-                              d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                            />
-                          </svg>
-                        ),
-                        title: '24/7 Operation',
-                        description:
-                          'Virtual workers that never sleep, ensuring round-the-clock productivity without overtime costs.',
-                      },
-                      {
-                        icon: (
-                          <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth={2}
-                              d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"
-                            />
-                          </svg>
-                        ),
-                        title: 'Adaptive Learning',
-                        description:
-                          'Advanced AI that learns your work and business processes and continually improves over time.',
-                      },
-                      {
-                        icon: (
-                          <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth={2}
-                              d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"
-                            />
-                          </svg>
-                        ),
-                        title: 'Process Automation',
-                        description:
-                          'Seamlessly automate repetitive tasks across customer service, data entry, admin workflows etc.',
-                      },
-                      {
-                        icon: (
-                          <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth={2}
-                              d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                            />
-                          </svg>
-                        ),
-                        title: 'Human-like Accuracy',
-                        description:
-                          'AI workers that deliver consistent, error-free results across all their assigned tasks.',
-                      },
-                    ].map((feature, index) => (
+                    {exampleGallery.map((example, index) => (
                       <motion.div
                         key={index}
                         variants={fadeInUp}
                         whileHover={{ y: -5 }}
-                        className="bg-white p-6 rounded-lg shadow-md"
+                        className="bg-gray-50 p-6 rounded-lg shadow-sm border border-gray-100 cursor-pointer"
+                        onClick={() => setCurrentSimulation({
+                          title: example.title,
+                          description: example.description,
+                          active: true
+                        })}
                       >
-                        <div className="text-blue-600 mb-4">{feature.icon}</div>
-                        <h3 className="text-xl font-bold mb-2">{feature.title}</h3>
-                        <p className="text-gray-600">{feature.description}</p>
+                        <div className="text-4xl mb-4">{example.icon}</div>
+                        <h3 className="text-lg font-bold mb-2 text-gray-800">{example.title}</h3>
+                        <p className="text-gray-600">{example.description}</p>
                       </motion.div>
                     ))}
                   </motion.div>
                 </div>
               </section>
 
-              {/* Workflow Section */}
-              <section id="solutions" className="py-20">
+              {/* Try It Section */}
+              <section id="try-it" className="py-20 bg-gray-50">
                 <div className="container mx-auto px-6">
                   <div className="grid md:grid-cols-2 gap-12 items-center">
                     <motion.div
                       initial="hidden"
                       whileInView="visible"
-                      viewport={{ once: true, margin: "-100px" }}
+                      viewport={{ once: true }}
                       variants={fadeInUp}
                     >
                       <h2 className="text-3xl font-bold mb-6">
-                        A true autonomy platform, not just another automation tool
+                        You imagine, we handle the magic
                       </h2>
                       <p className="text-gray-600 mb-6">
-                        Deploy fully autonomous workflows capable of understanding context, making
-                        decisions, and executing complete workflows without constant supervision.
+                        InitFlow turns everyday language into device actions instantly. No coding required.
+                        Just describe what you want your device to do, and watch it happen.
                       </p>
+                      
+                      <ul className="space-y-4 mb-8">
+                        {[
+                          {
+                            title: "Turn everyday language into device actions",
+                            description: "Just describe what you want in plain English"
+                          },
+                          {
+                            title: "Fix mistakes through conversation",
+                            description: "Simply say 'Make it faster' or 'Change the color'"
+                          },
+                          {
+                            title: "Test ideas on realistic virtual hardware",
+                            description: "See your ideas work before building physical devices"
+                          },
+                          {
+                            title: "Share working projects with one link",
+                            description: "Let others interact with your creations instantly"
+                          }
+                        ].map((feature, index) => (
+                          <li key={index} className="flex items-start">
+                            <div className="bg-orange-500 rounded-full p-1 mt-1 mr-3">
+                              <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                              </svg>
+                            </div>
+                            <div>
+                              <h4 className="text-lg font-semibold text-gray-800">{feature.title}</h4>
+                              <p className="text-gray-600">{feature.description}</p>
+                            </div>
+                          </li>
+                        ))}
+                      </ul>
+                      
                       <motion.button
-                        whileHover={{ x: 5 }}
-                        className="text-blue-600 font-medium flex items-center"
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-md transition-colors"
                       >
-                        Learn more
-                        <svg
-                          className="w-5 h-5 ml-1"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M14 5l7 7m0 0l-7 7m7-7H3"
-                          />
-                        </svg>
+                        See It Work Free
                       </motion.button>
                     </motion.div>
 
                     <motion.div
                       initial={{ opacity: 0 }}
                       whileInView={{ opacity: 1 }}
-                      viewport={{ once: true, margin: "-100px" }}
+                      viewport={{ once: true }}
                       transition={{ duration: 0.8 }}
                       className="relative"
                     >
-                      <div className="bg-gray-50 p-8 rounded-lg">
-                        <motion.div
-                          initial="hidden"
-                          whileInView="visible"
-                          viewport={{ once: true }}
-                          variants={staggerContainer}
-                        >
-                          {[
-                            {
-                              step: 1,
-                              title: 'Task Assignment',
-                              description: 'AI receives and understands the task.',
-                            },
-                            {
-                              step: 2,
-                              title: 'Decision Making',
-                              description: 'AI analyzes data and makes informed decisions.',
-                            },
-                            {
-                              step: 3,
-                              title: 'Execution',
-                              description: 'AI performs the necessary actions.',
-                            },
-                            {
-                              step: 4,
-                              title: 'Completion',
-                              description: 'AI verifies and completes the task.',
-                            },
-                          ].map((item, index) => (
-                            <motion.div
-                              key={index}
-                              variants={fadeInUp}
-                              className="flex items-center mb-4"
-                            >
-                              <div className="w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center mr-4">
-                                {item.step}
+                      <div className="bg-white p-6 rounded-lg shadow-lg">
+                        <h3 className="text-xl font-bold mb-4 text-center">Mobile Demo</h3>
+                        <div className="relative mx-auto w-[280px] h-[560px] bg-gray-900 rounded-[36px] p-4 shadow-xl overflow-hidden">
+                          <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-1/3 h-6 bg-black rounded-b-xl"></div>
+                          <div className="bg-white h-full w-full rounded-[24px] overflow-hidden flex flex-col">
+                            <div className="bg-blue-600 text-white p-4">
+                              <h4 className="text-lg font-bold">InitFlow Mobile</h4>
+                            </div>
+                            <div className="flex-1 p-4 overflow-y-auto">
+                              <div className="space-y-4">
+                                <div className="bg-gray-100 rounded-lg p-3">
+                                  <p className="text-sm">Describe your device behavior:</p>
+                                  <p className="font-medium mt-1">Water plants every morning</p>
+                                </div>
+                                
+                                <div className="bg-blue-50 rounded-lg p-3">
+                                  <p className="text-sm text-blue-700">InitFlow is creating your device...</p>
+                                </div>
+                                
+                                <div className="bg-green-50 rounded-lg p-3">
+                                  <p className="text-sm text-green-700">Device created!</p>
+                                  <div className="mt-2 bg-white rounded p-2 flex items-center">
+                                    <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mr-3">
+                                      <span className="text-lg">🌱</span>
+                                    </div>
+                                    <div>
+                                      <p className="font-medium">Plant Watering System</p>
+                                      <p className="text-xs text-gray-500">Waters daily at 7:00 AM</p>
+                                    </div>
+                                  </div>
+                                </div>
+                                
+                                <div className="bg-gray-100 rounded-lg p-3">
+                                  <p className="text-sm">Make it water twice a day</p>
+                                </div>
+                                
+                                <div className="bg-blue-50 rounded-lg p-3">
+                                  <p className="text-sm text-blue-700">Updating your device...</p>
+                                </div>
+                                
+                                <div className="bg-green-50 rounded-lg p-3">
+                                  <p className="text-sm text-green-700">Device updated!</p>
+                                  <div className="mt-2 bg-white rounded p-2">
+                                    <p className="font-medium">Plant Watering System</p>
+                                    <p className="text-xs text-gray-500">Waters daily at 7:00 AM and 6:00 PM</p>
+                                  </div>
+                                </div>
                               </div>
-                              <div>
-                                <h4 className="text-lg font-bold">{item.title}</h4>
-                                <p className="text-gray-600">{item.description}</p>
+                            </div>
+                            <div className="p-3 border-t">
+                              <div className="flex">
+                                <input 
+                                  type="text" 
+                                  placeholder="Type your command..." 
+                                  className="flex-1 p-2 border rounded-l-lg focus:outline-none text-sm"
+                                />
+                                <button className="bg-orange-500 text-white p-2 rounded-r-lg">
+                                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                  </svg>
+                                </button>
                               </div>
-                            </motion.div>
-                          ))}
-                        </motion.div>
+                            </div>
+                          </div>
+                        </div>
+                        <p className="text-center text-gray-500 mt-4 text-sm">30-second creation cycle</p>
                       </div>
                     </motion.div>
                   </div>
+                </div>
+              </section>
+
+              {/* For Who Section */}
+              <section className="py-20 bg-white">
+                <div className="container mx-auto px-6">
+                  <motion.h2
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                    variants={fadeInUp}
+                    className="text-3xl font-bold text-center mb-4"
+                  >
+                    Who Is InitFlow For?
+                  </motion.h2>
+                  
+                  <motion.div
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                    variants={staggerContainer}
+                    className="grid md:grid-cols-3 gap-8 mt-12"
+                  >
+                    {[
+                      {
+                        icon: "👩‍🏫",
+                        title: "Teachers",
+                        description: "Make technology accessible to students without the complexity of coding. Create interactive demonstrations in seconds."
+                      },
+                      {
+                        icon: "🛠️",
+                        title: "Makers",
+                        description: "Focus on results, not code. Quickly prototype and test ideas before building physical devices."
+                      },
+                      {
+                        icon: "🔰",
+                        title: "Beginners",
+                        description: "Start creating smart devices without the intimidation of programming languages. Learn as you go with natural language."
+                      }
+                    ].map((persona, index) => (
+                      <motion.div
+                        key={index}
+                        variants={fadeInUp}
+                        className="bg-gray-50 p-8 rounded-lg text-center"
+                      >
+                        <div className="text-4xl mb-4">{persona.icon}</div>
+                        <h3 className="text-xl font-bold mb-3">{persona.title}</h3>
+                        <p className="text-gray-600">{persona.description}</p>
+                      </motion.div>
+                    ))}
+                  </motion.div>
+                </div>
+              </section>
+
+              {/* CTA Section */}
+              <section className="py-16 bg-gradient-to-r from-orange-500 to-orange-600 text-white">
+                <div className="container mx-auto px-6 text-center">
+                  <motion.h2
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                    variants={fadeInUp}
+                    className="text-3xl font-bold mb-6"
+                  >
+                    Ready to transform how you create smart devices?
+                  </motion.h2>
+                  <motion.p
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                    variants={fadeInUp}
+                    className="text-xl mb-8 max-w-2xl mx-auto"
+                  >
+                    Start creating with InitFlow today. No coding skills required.
+                  </motion.p>
+                  <motion.div
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                    variants={fadeInUp}
+                    className="flex flex-wrap justify-center gap-4"
+                  >
+                    <button className="bg-white text-orange-600 hover:bg-gray-100 px-8 py-3 rounded-md font-medium transition-colors">
+                      Describe Your Idea
+                    </button>
+                    <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-md font-medium transition-colors">
+                      See It Work Free
+                    </button>
+                  </motion.div>
                 </div>
               </section>
 
@@ -479,24 +536,26 @@ function App() {
                 <div className="container mx-auto px-6">
                   <div className="grid md:grid-cols-3 gap-8">
                     <div>
-                      <h3 className="text-xl font-bold mb-4">InitFlow</h3>
+                      <h3 className="text-xl font-bold mb-4">
+                        Init<span className="text-orange-500">Flow</span>
+                      </h3>
                       <p className="text-gray-400">
-                        Transforming businesses with autonomous workflows.
+                        Tell it. Watch it work.
                       </p>
                     </div>
                     <div>
                       <h4 className="text-lg font-bold mb-4">Quick Links</h4>
                       <ul className="space-y-2">
-                        <li><a href="#features" className="text-gray-400 hover:text-blue-600 transition-colors">Features</a></li>
-                        <li><a href="#solutions" className="text-gray-400 hover:text-blue-600 transition-colors">Solutions</a></li>
-                        <li><Link to="/pricing" className="text-gray-400 hover:text-blue-600 transition-colors">Pricing</Link></li>
+                        <li><a href="#examples" className="text-gray-400 hover:text-orange-500 transition-colors">Examples</a></li>
+                        <li><a href="#try-it" className="text-gray-400 hover:text-orange-500 transition-colors">Try It</a></li>
+                        <li><Link to="/pricing" className="text-gray-400 hover:text-orange-500 transition-colors">Pricing</Link></li>
                       </ul>
                     </div>
                     <div>
                       <h4 className="text-lg font-bold mb-4">Legal</h4>
                       <ul className="space-y-2">
-                        <li><Link to="/privacy-policy" className="text-gray-400 hover:text-blue-600 transition-colors">Privacy Policy</Link></li>
-                        <li><Link to="/terms-of-service" className="text-gray-400 hover:text-blue-600 transition-colors">Terms of Service</Link></li>
+                        <li><Link to="/privacy-policy" className="text-gray-400 hover:text-orange-500 transition-colors">Privacy Policy</Link></li>
+                        <li><Link to="/terms-of-service" className="text-gray-400 hover:text-orange-500 transition-colors">Terms of Service</Link></li>
                       </ul>
                     </div>
                   </div>
