@@ -84,13 +84,7 @@ function App() {
                       >
                         Login
                       </motion.button>
-                      <motion.button
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md transition-colors"
-                      >
-                        Sign up
-                      </motion.button>
+                    
                     </div>
                   </div>
                 </div>
@@ -110,14 +104,16 @@ function App() {
                         variants={fadeInUp}
                         className="text-5xl font-bold leading-tight mb-6"
                       >
-                        Tell it. <br /> Watch it work.
+                        Program Microcontrollers
+                        <br />
+                        With Just Words
                       </motion.h1>
                       <motion.p
                         variants={fadeInUp}
                         className="text-xl text-gray-100 mb-8"
                       >
-                        Describe what you want your devices to do in plain English, 
-                        and see it happen instantly — no code required.
+                        Describe your firmware needs in plain English and get working code for
+                        Raspberry Pi Pico, ESP32, Arduino and more - no coding experience required.
                       </motion.p>
                       <motion.div variants={fadeInUp} className="flex flex-wrap gap-4">
                         <button
@@ -150,7 +146,6 @@ function App() {
                               Device Simulator
                             </div>
                             <div className="px-3 py-1 rounded text-gray-500 text-sm">Examples</div>
-                            <div className="px-3 py-1 rounded text-gray-500 text-sm">Share</div>
                           </div>
                         </div>
                         <div className="p-6">
@@ -224,13 +219,12 @@ function App() {
                   >
                     From Imagination to Reality in Seconds
                   </motion.h2>
-                  <div className="grid md:grid-cols-2 gap-12 items-center">
-                    {/* Video Placeholder */}
-                    <motion.div variants={fadeInUp} className="relative">
+                  <div className="grid md:grid-cols-1 gap-12 items-center justify-center">
+                    <motion.div variants={fadeInUp} className="relative max-w-2xl mx-auto">
                       <div className="rounded-lg shadow-lg overflow-hidden bg-gray-100 aspect-video flex items-center justify-center">
                         <img
-                          src="https://via.placeholder.com/600x400"
-                          alt="Mobile demo showing 30-second creation cycle"
+                          src="https://via.placeholder.com/800x450"
+                          alt="Firmware programming demo"
                           className="w-full"
                         />
                         <div className="absolute inset-0 flex items-center justify-center">
@@ -244,46 +238,7 @@ function App() {
                             </svg>
                           </button>
                         </div>
-                        <div className="absolute bottom-4 left-4 bg-black/70 text-white px-3 py-1 rounded-full text-sm">
-                          Mobile Demo: 30-second creation cycle
-                        </div>
                       </div>
-                    </motion.div>
-                    {/* Example Gallery */}
-                    <motion.div variants={fadeInUp}>
-                      <h3 className="text-2xl font-bold mb-6">Example Gallery</h3>
-                      <ul className="space-y-6">
-                        {[
-                          {
-                            command: "Notify me when mail arrives",
-                            description: "Mailbox sensor sends alerts to your phone when new mail is detected",
-                            icon: "📬"
-                          },
-                          {
-                            command: "Water plants every morning",
-                            description: "Self-watering garden system activates based on soil moisture and time",
-                            icon: "🌱"
-                          },
-                          {
-                            command: "Turn on lights at sunset",
-                            description: "Smart lighting adjusts automatically based on local sunset times",
-                            icon: "💡"
-                          },
-                        ].map((example, index) => (
-                          <li key={index} className="bg-gray-50 p-4 rounded-lg hover:shadow-md transition-shadow">
-                            <div className="flex items-start">
-                              <div className="text-3xl mr-4">{example.icon}</div>
-                              <div>
-                                <h4 className="text-lg font-semibold text-blue-600">"{example.command}"</h4>
-                                <p className="text-gray-600">{example.description}</p>
-                                <button className="mt-2 text-sm text-orange-500 font-medium">
-                                  Try this example →
-                                </button>
-                              </div>
-                            </div>
-                          </li>
-                        ))}
-                      </ul>
                     </motion.div>
                   </div>
                 </div>
@@ -326,9 +281,9 @@ function App() {
                             />
                           </svg>
                         ),
-                        title: 'Natural Language Control',
+                        title: 'Hardware-Aware Code Generation',
                         description:
-                          'Turn everyday language into device actions instantly without writing a single line of code.',
+                          'Generates optimized firmware code tailored for Raspberry Pi Pico, ESP32, Arduino and other popular microcontrollers.',
                       },
                       {
                         icon: (
@@ -341,9 +296,9 @@ function App() {
                             />
                           </svg>
                         ),
-                        title: 'Conversational Refinement',
+                        title: 'Sensor & Peripheral Support',
                         description:
-                          'Fix mistakes through simple conversation. Just say "Make it faster" or "Change the color" and watch it update.',
+                          'Works with common sensors (DHT, PIR, ultrasonic) and peripherals (LEDs, relays, displays) out of the box.',
                       },
                       {
                         icon: (
@@ -356,9 +311,9 @@ function App() {
                             />
                           </svg>
                         ),
-                        title: 'Virtual Testing',
+                        title: 'Virtual Hardware Testing',
                         description:
-                          'Test your ideas on realistic virtual hardware before deploying to physical devices.',
+                          'Test your firmware on virtual hardware before flashing to physical devices.',
                       },
                       {
                         icon: (
@@ -367,14 +322,14 @@ function App() {
                               strokeLinecap="round"
                               strokeLinejoin="round"
                               strokeWidth={2}
-                              d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"
+                              d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10"
                             />
                           </svg>
                         ),
-                        title: 'One-Click Sharing',
+                        title: 'One-Click Deployment',
                         description:
-                          'Share your working projects with a single link, allowing others to see and interact with your creation.',
-                      },
+                          'Download ready-to-flash firmware binaries or use our web-based flasher tool.',
+                      }
                     ].map((feature, index) => (
                       <motion.div
                         key={index}
@@ -413,19 +368,19 @@ function App() {
                   >
                     {[
                       {
-                        icon: "👩‍🏫",
-                        title: "Teachers",
-                        description: "Make technology accessible to students without the complexity of traditional programming."
+                        icon: "👩‍💻",
+                        title: "Makers & Hobbyists",
+                        description: "Bring your IoT ideas to life without deep coding knowledge"
                       },
                       {
-                        icon: "🛠️",
-                        title: "Makers",
-                        description: "Focus on creative ideas and results instead of getting lost in code syntax and debugging."
+                        icon: "🏭",
+                        title: "Prototypers",
+                        description: "Rapidly prototype hardware concepts before investing in custom development"
                       },
                       {
-                        icon: "🔰",
-                        title: "Beginners",
-                        description: "Start creating functional devices without the intimidating learning curve of programming languages."
+                        icon: "🏫",
+                        title: "Educators",
+                        description: "Teach electronics and IoT concepts without getting bogged down in complex coding"
                       }
                     ].map((audience, index) => (
                       <motion.div
