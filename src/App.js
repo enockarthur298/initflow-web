@@ -130,18 +130,14 @@ function App() {
                       variants={fadeInUp}
                       className="max-w-lg"
                     >
-                      <motion.h1
-                        variants={fadeInUp}
-                        className="text-5xl font-bold leading-tight mb-6"
-                      >
-                        Program Microcontrollers
+                      <h1 className="text-5xl font-bold leading-tight mb-6">
+                        Create Device Firmware
                         <br />
-                        With Just Words
-                      </motion.h1>
-                      <motion.p variants={fadeInUp} className="text-lg text-white/90 mb-8">
-                        Describe your firmware needs in plain English and get working code for
-                        Raspberry Pi Pico, ESP32, Arduino and more - no coding experience required.
-                      </motion.p>
+                        <span className="text-blue-200">Using Natural Language</span>
+                      </h1>
+                      <p className="text-xl text-blue-100 mb-8">
+                        Describe your device's behavior in plain English and get optimized firmware code instantly.
+                      </p>
                     </motion.div>
                     <motion.div
                       initial={{ opacity: 0, x: 20 }}
@@ -270,10 +266,10 @@ function App() {
                     className="text-center max-w-2xl mx-auto mb-16"
                   >
                     <h2 className="text-4xl font-bold mb-4">
-                      You imagine, <br /> we handle the magic
+                      Program Devices with Plain English
                     </h2>
                     <p className="text-gray-600">
-                      No coding required. Just describe what you want in plain English.
+                      No coding required. Just describe what you want in natural language.
                     </p>
                   </motion.div>
 
@@ -559,7 +555,7 @@ function App() {
                           >
                             {isSubmitting ? (
                               <>
-                                <svg className="animate-spin -ml-1 mr-2 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                <svg className="animate-spin -ml-1 mr-2 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                   <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                                   <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                                 </svg>
