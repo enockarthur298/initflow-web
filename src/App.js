@@ -149,23 +149,7 @@ function App() {
                         ))}
                       </ul>
 
-                      <div className="flex items-center space-x-3 ml-6">
-                        <motion.button
-                          whileHover={{ scale: 1.05 }}
-                          whileTap={{ scale: 0.95 }}
-                          className={`font-medium transition-colors ${isScrolled ? 'text-gray-700 hover:text-blue-600' : 'text-white hover:text-blue-200'}`}
-                        >
-                          Login
-                        </motion.button>
-
-                        <motion.button
-                          whileHover={{ scale: 1.05 }}
-                          whileTap={{ scale: 0.95 }}
-                          className={`px-5 py-2 rounded-full font-medium transition-all ${isScrolled ? 'bg-blue-600 text-white hover:bg-blue-700' : 'bg-white/20 backdrop-blur-sm text-white hover:bg-white/30'}`}
-                        >
-                          Get Started
-                        </motion.button>
-                      </div>
+                      
                     </div>
 
                     {/* Mobile menu button */}
