@@ -38,7 +38,7 @@ const Pricing = () => {
                 
               </div>
               <span className="text-lg text-gray-600 ml-2">/month</span>
-              <span className="ml-2 text-sm bg-green-100 text-green-700 px-2 py-1 rounded-full font-medium">25% OFF</span>
+              
             </div>
             
             <ul className="space-y-4 mb-8">
