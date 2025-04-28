@@ -740,75 +740,12 @@ function App() {
                 </div>
               </section>
 
-              {/* Pricing Teaser Section */}
-              <section className="py-20 bg-white">
-                <div className="container mx-auto px-6">
-                  <motion.div
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true, margin: "-100px" }}
-                    variants={fadeInUp}
-                    className="text-center max-w-3xl mx-auto mb-12"
-                  >
-                    <h2 className="text-4xl font-bold mb-4">
-                      Early Access <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-700">Pricing</span>
-                    </h2>
-                    <p className="text-lg text-gray-600">
-                      Join our waitlist now to lock in special founder pricing when we launch
-                    </p>
-                  </motion.div>
+             
                   
-                  <motion.div
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true, margin: "-100px" }}
-                    variants={fadeInUpScroll}
-                    className="max-w-lg mx-auto bg-gray-50 rounded-2xl shadow-lg border border-gray-100 overflow-hidden"
-                  >
-                    <div className="bg-gradient-to-r from-blue-600 to-indigo-700 px-6 py-4 text-white">
-                      <div className="inline-block px-3 py-1 bg-white/20 rounded-full text-sm font-medium mb-2">
-                        Founder's Plan
-                      </div>
-                      <div className="flex items-end gap-2">
-                        <span className="text-4xl font-bold">$49</span>
-                        <span className="text-xl opacity-80">/month</span>
-                      </div>
-                      <p className="text-blue-100 mt-1">
-                        Special pricing for waitlist members
-                      </p>
-                    </div>
+                
                     
-                    <div className="p-6">
-                      <ul className="space-y-4 mb-8">
-                        {[
-                          "Unlimited app creations",
-                          "Full database functionality",
-                          "Custom domain publishing",
-                          "User authentication systems",
-                          "Priority support",
-                          "50% off regular pricing (forever)"
-                        ].map((feature, index) => (
-                          <li key={index} className="flex items-start">
-                            <CheckCircle className="w-5 h-5 text-green-500 mr-3" />
-                            <span>{feature}</span>
-                          </li>
-                        ))}
-                      </ul>
-                      
-                      <a 
-                        href="#waitlist" 
-                        className="block w-full bg-blue-600 text-white text-center font-bold py-4 rounded-lg hover:bg-blue-700 transition-colors"
-                      >
-                        Join the Waitlist
-                      </a>
-                      
-                      <p className="text-center text-sm text-gray-500 mt-4">
-                        Limited spots available at founder pricing
-                      </p>
-                    </div>
-                  </motion.div>
-                </div>
-              </section>
+                   
+                   
 
               {/* Waitlist CTA Section */}
               <section id="waitlist" className="relative overflow-hidden bg-gradient-to-br from-blue-700 via-blue-600 to-indigo-700 py-24">
