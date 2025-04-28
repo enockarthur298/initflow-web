@@ -195,14 +195,7 @@ function App() {
                             {item.name}
                           </Link>
                         ))}
-                        <div className="pt-4 flex flex-col space-y-3">
-                          <button className="px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600">
-                            Login
-                          </button>
-                          <button className="px-4 py-2 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700">
-                            Get Started
-                          </button>
-                        </div>
+                       
                       </div>
                     </motion.div>
                   )}
