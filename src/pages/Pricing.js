@@ -34,7 +34,7 @@ const Pricing = () => {
           <div className="p-8">
             <div className="mb-8 flex items-end">
               <div className="flex items-start">
-                <span className="text-5xl font-extrabold text-gray-900">$49</span>
+                <span className="text-5xl font-extrabold text-gray-900">$25</span>
                 
               </div>
               <span className="text-lg text-gray-600 ml-2">/month</span>
@@ -77,7 +77,7 @@ const Pricing = () => {
             {/* CTA Button */}
             <div className="text-center">
               <button className="w-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-bold py-4 px-6 rounded-xl shadow-lg hover:shadow-xl transform transition-all hover:-translate-y-1 focus:outline-none focus:ring-4 focus:ring-indigo-300">
-                Join Waitlist & Secure 50% Off
+                Join Waitlist & Secure 25% Off
               </button>
               <p className="mt-4 text-sm text-gray-500 flex items-center justify-center">
                 <Shield size={16} className="mr-1" /> Secure payment • Cancel anytime
@@ -105,7 +105,7 @@ const Pricing = () => {
             <div>
               <h3 className="text-xl font-bold mb-4">InitFlow</h3>
               <p className="text-gray-400">
-                Making technology work for you, through the power of words.
+                Transform your ideas into reality with InitFlowAI. The no-code platform that lets you build complete web applications just by describing what you want.
               </p>
             </div>
             <div>
