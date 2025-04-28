@@ -106,7 +106,7 @@ function App() {
                       className="flex items-center"
                     >
                       <h1 className="text-2xl font-bold">
-                        AppMagic<span className="text-blue-600">AI</span>
+                        InitFlow<span className="text-blue-600">AI</span>
                       </h1>
                     </motion.div>
 
@@ -464,7 +464,7 @@ function App() {
                     </div>
                   </div>
                   <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-                    2025 AppMagic. All rights reserved.
+                    2025 InitFlow. All rights reserved.
                   </div>
                 </div>
               </footer>
