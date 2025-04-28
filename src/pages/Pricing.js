@@ -35,16 +35,16 @@ const Pricing = () => {
             <div className="mb-8 flex items-end">
               <div className="flex items-start">
                 <span className="text-5xl font-extrabold text-gray-900">$49</span>
-                <span className="text-xl text-gray-500 ml-2 line-through">$99</span>
+                
               </div>
               <span className="text-lg text-gray-600 ml-2">/month</span>
-              <span className="ml-2 text-sm bg-green-100 text-green-700 px-2 py-1 rounded-full font-medium">50% OFF Forever</span>
+              <span className="ml-2 text-sm bg-green-100 text-green-700 px-2 py-1 rounded-full font-medium">25% OFF</span>
             </div>
             
             <ul className="space-y-4 mb-8">
               {[
                 {
-                  text: "Unlimited app creations",
+                  text: "2.5M credit per month",
                   icon: <Sparkles size={18} className="text-indigo-600 mr-2" />
                 },
                 {
