@@ -334,7 +334,7 @@ function App() {
                       </div>
                       
                       <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-                        Join the AppMagic Waitlist
+                        Join the InitFlow Waitlist
                       </h2>
                       <p className="text-xl text-white/80 mb-10 max-w-2xl mx-auto">
                         Be the first to build amazing web apps without writing a single line of code
