@@ -106,7 +106,7 @@ function App() {
                       className="flex items-center"
                     >
                       <h1 className="text-2xl font-bold">
-                        InitFlow<span className="text-blue-600">AI</span>
+                        AppMagic<span className="text-blue-600">AI</span>
                       </h1>
                     </motion.div>
 
@@ -152,14 +152,14 @@ function App() {
                       variants={fadeInUp}
                     >
                       <h1 className="text-5xl md:text-6xl font-bold leading-tight mb-6 tracking-tight">
-                        Create Device Firmware
+                        Build Complete Web Apps
                         <br />
                         <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-200 to-orange-100">
-                          Using Natural Language
+                          Just By Describing Them
                         </span>
                       </h1>
                       <p className="text-xl md:text-2xl text-blue-100/90 leading-relaxed max-w-2xl mx-auto">
-                        Describe your device's behavior in plain English and get optimized firmware code instantly.
+                        No coding needed. Tell our AI what you want, and get a working website in minutes.
                       </p>
                     </motion.div>
                   </div>
@@ -182,10 +182,10 @@ function App() {
                     className="text-center max-w-2xl mx-auto mb-16"
                   >
                     <h2 className="text-4xl font-bold mb-4">
-                      Program Devices with Plain English
+                      Create Apps With Simple Words
                     </h2>
                     <p className="text-gray-600">
-                      No coding required. Just describe what you want in natural language.
+                      Just describe what you want, and our AI does all the technical work for you.
                     </p>
                   </motion.div>
 
@@ -208,9 +208,9 @@ function App() {
                           />
                         </svg>
                         ),
-                        title: 'Hardware-Aware Code Generation',
+                        title: 'Complete Website Creation',
                         description:
-                          'Generates optimized firmware code tailored for Raspberry Pi Pico, ESP32, Arduino and other popular microcontrollers.',
+                          'Build full websites with databases, user accounts, and all the features you need - without writing a single line of code.',
                       },
                       {
                         icon: (
@@ -223,9 +223,9 @@ function App() {
                             />
                           </svg>
                         ),
-                        title: 'See Realtime Device Output',
+                        title: 'See Your App Take Shape',
                         description:
-                          'Monitor your device behavior and debug with live serial output visualization.',
+                          'Watch in real-time as our AI builds your app. Make changes by simply asking for what you want.',
                       },
                       {
                         icon: (
@@ -238,9 +238,9 @@ function App() {
                             />
                           </svg>
                         ),
-                        title: 'One-Click Upload',
+                        title: 'One-Click Publishing',
                         description:
-                          'Instantly upload firmware to your device with a single click.',
+                          'Your app is ready to go live with just one click. We handle all the technical hosting details.',
                       }
                     ].map((feature, index) => (
                       <motion.div
@@ -268,7 +268,7 @@ function App() {
                     variants={fadeInUp}
                     className="text-3xl font-bold text-center mb-12"
                   >
-                    Who Is InitFlow For?
+                    Who Is AppMagic For?
                   </motion.h2>
                   
                   <motion.div
@@ -281,18 +281,18 @@ function App() {
                     {[
                       {
                         icon: <MessageSquare className="w-10 h-10 mx-auto" />,
-                        title: "Makers & Hobbyists",
-                        description: "Bring your IoT ideas to life without deep coding knowledge"
+                        title: "Small Business Owners",
+                        description: "Create your business website or app without hiring expensive developers"
                       },
                       {
                         icon: <Eye className="w-10 h-10 mx-auto" />,
-                        title: "Prototypers",
-                        description: "Rapidly prototype hardware concepts before investing in custom development"
+                        title: "Idea People",
+                        description: "Turn your app ideas into reality without learning to code or spending thousands"
                       },
                       {
                         icon: <Edit3 className="w-10 h-10 mx-auto" />,
-                        title: "Educators",
-                        description: "Teach electronics and IoT concepts without getting bogged down in complex coding"
+                        title: "Content Creators",
+                        description: "Build custom websites to showcase your work and engage with your audience"
                       }
                     ].map((audience, index) => (
                       <motion.div
@@ -334,10 +334,10 @@ function App() {
                       </div>
                       
                       <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-                        Join the InitFlow Waitlist
+                        Join the AppMagic Waitlist
                       </h2>
                       <p className="text-xl text-white/80 mb-10 max-w-2xl mx-auto">
-                        Be the first to access our AI-powered firmware programming platform
+                        Be the first to build amazing web apps without writing a single line of code
                       </p>
                       
                       <motion.div 
@@ -443,9 +443,9 @@ function App() {
                 <div className="container mx-auto px-6">
                   <div className="grid md:grid-cols-3 gap-8">
                     <div>
-                      <h3 className="text-xl font-bold mb-4">InitFlow</h3>
+                      <h3 className="text-xl font-bold mb-4">AppMagic</h3>
                       <p className="text-gray-400">
-                        Making technology work for you, through the power of words.
+                        Turn your ideas into reality, no coding skills required.
                       </p>
                     </div>
                     <div>
@@ -464,7 +464,7 @@ function App() {
                     </div>
                   </div>
                   <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-                    2025 InitFlow. All rights reserved.
+                    2025 AppMagic. All rights reserved.
                   </div>
                 </div>
               </footer>
