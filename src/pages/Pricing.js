@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Check, Sparkles, Shield, Database, Globe, Users, HeadsetMic } from 'lucide-react';
+import { Check, Sparkles, Shield, Database, Globe, Users, Headphones } from 'lucide-react';
 
 const Pricing = () => {
   return (
@@ -61,7 +61,7 @@ const Pricing = () => {
                 },
                 {
                   text: "Priority support",
-                  icon: <HeadsetMic size={18} className="text-indigo-600 mr-2" />
+                  icon: <Headphones size={18} className="text-indigo-600 mr-2" />
                 }
               ].map((item, index) => (
                 <li key={index} className="flex items-start">
