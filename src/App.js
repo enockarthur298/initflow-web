@@ -353,7 +353,7 @@ function App() {
                         icon: <Code className="w-12 h-12 text-blue-600" />,
                         step: "02",
                         title: "AI Builds Everything",
-                        description: "Our AI handles the coding, database setup, and design automatically."
+                        description: "Our AI handles the coding, backend, and design automatically."
                       },
                       {
                         icon: <Globe className="w-12 h-12 text-blue-600" />,
@@ -495,7 +495,7 @@ function App() {
                         ),
                         title: 'Unlimited Iterations',
                         description:
-                          'Refine your app as many times as you want. Just describe the changes and watch them happen.',
+                          'Refine your app as many times as you want. Just describe the changes.',
                       }
                     ].map((feature, index) => (
                       <motion.div
@@ -539,7 +539,7 @@ function App() {
                       {
                         icon: <MessageSquare className="w-12 h-12 text-blue-600" />,
                         title: "Entrepreneurs & Startups",
-                        description: "Launch your MVP in days instead of months. Test ideas quickly without expensive development costs."
+                        description: "Launch your MVP in minutes instead of months. Test ideas quickly without expensive development costs."
                       },
                       {
                         icon: <Eye className="w-12 h-12 text-blue-600" />,
