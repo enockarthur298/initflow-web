@@ -77,12 +77,14 @@ function App() {
   };
 
   const staggerContainer = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
- STAGGER CHILDREN: 0.1,
-      },
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1, // Fixed: Changed "STAGGER CHILDREN" to "staggerChildren"
     },
+  },
+};
   };
 
   // Motion animation for elements entering viewport
