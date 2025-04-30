@@ -6,8 +6,6 @@ import PrivacyPolicy from './pages/PrivacyPolicy';
 import Pricing from './pages/Pricing';
 import { MessageSquare, Eye, Edit3, ArrowRight, CheckCircle, X, Code, Zap, Globe } from 'lucide-react';
 
-
-
 function App() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [email, setEmail] = useState('');
@@ -79,14 +77,13 @@ function App() {
   };
 
   const staggerContainer = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1, // Fixed: Changed "STAGGER CHILDREN" to "staggerChildren"
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1, // Fixed: Corrected from "STAGGER CHILDREN" to "staggerChildren"
+      },
     },
-  },
-};
   };
 
   // Motion animation for elements entering viewport
