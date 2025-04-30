@@ -182,7 +182,7 @@ function App() {
                         {[
                           { name: 'Features', link: '#features' },
                           { name: 'How it Works', link: '#how-it-works' },
-                          { name: 'Pricing', link: '/pricing' }
+                          { name: '', link: '#' }
                         ].map((item) => (
                           <Link
                             key={item.name}
