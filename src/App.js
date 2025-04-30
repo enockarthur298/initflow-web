@@ -6,6 +6,8 @@ import PrivacyPolicy from './pages/PrivacyPolicy';
 import Pricing from './pages/Pricing';
 import { MessageSquare, Eye, Edit3, ArrowRight, CheckCircle, X, Code, Zap, Globe } from 'lucide-react';
 
+
+
 function App() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [email, setEmail] = useState('');
