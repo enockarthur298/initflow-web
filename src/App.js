@@ -78,7 +78,7 @@ function App() {
 
   const staggerContainer = {
     hidden: { opacity: 0 },
-    visible: { 
+    visible: {
       opacity: 1,
       transition: {
         staggerChildren: 0.1,
@@ -132,7 +132,7 @@ function App() {
                         {[
                           { name: 'Features', link: '#features' },
                           { name: 'How it Works', link: '#how-it-works' },
-                          { name: '', link: '#' }
+                          { name: 'Pricing', link: '/pricing' }
                         ].map((item) => (
                           <motion.li
                             key={item.name}
@@ -184,7 +184,7 @@ function App() {
                         {[
                           { name: 'Features', link: '#features' },
                           { name: 'How it Works', link: '#how-it-works' },
-                          { name: '', link: '#' } //add pricing later
+                          { name: '', link: '# }
                         ].map((item) => (
                           <Link
                             key={item.name}
@@ -264,7 +264,28 @@ function App() {
                       transition={{ delay: 0.4, duration: 0.8 }}
                       className="flex justify-center mt-8 md:mt-16"
                     >
-                      
+                      <div className="bg-white/10 backdrop-blur-md rounded-xl p-1 border border-white/20 shadow-2xl w-full max-w-4xl">
+                        <div className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-lg p-4 text-white">
+                          <div className="flex items-center gap-2 mb-3">
+                            <div className="flex gap-1.5">
+                              <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                              <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+                              <div className="w-3 h-3 rounded-full bg-green-500"></div>
+                            </div>
+                            <div className="text-xs text-gray-400">app-builder.js</div>
+                          </div>
+                          <div className="font-mono text-sm md:text-base">
+                            <div><span className="text-purple-400">InitFlowAI</span><span className="text-blue-400">.create</span><span className="text-yellow-400">(</span><span className="text-green-400">"I need a task management app with user authentication, project boards, and a calendar view"</span><span className="text-yellow-400">)</span></div>
+                            <div className="ml-4 mt-2"><span className="text-purple-400">↳</span> <span className="text-gray-400">Generating components...</span></div>
+                            <div className="ml-4"><span className="text-purple-400">↳</span> <span className="text-gray-400">Building database schema...</span></div>
+                            <div className="ml-4"><span className="text-purple-400">↳</span> <span className="text-gray-400">Configuring authentication...</span></div>
+                            <div className="ml-4 mt-2"><span className="text-green-400">✓</span> <span className="text-white">Your app is ready! Preview at: app.initflow.ai/preview/task-master</span></div>
+                          </div>
+                        </div>
+                      </div>
+                    </motion.div>
+                  </div>
+                </div>
                 
                 <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white to-transparent"></div>
               </section>
