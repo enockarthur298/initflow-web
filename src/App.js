@@ -78,7 +78,7 @@ function App() {
 
   const staggerContainer = {
     hidden: { opacity: 0 },
-    visible: {
+    visible: { 
       opacity: 1,
       transition: {
         staggerChildren: 0.1,
@@ -132,7 +132,7 @@ function App() {
                         {[
                           { name: 'Features', link: '#features' },
                           { name: 'How it Works', link: '#how-it-works' },
-                          { name: 'Pricing', link: '/pricing' }
+                          { name: '', link: '#' }
                         ].map((item) => (
                           <motion.li
                             key={item.name}
